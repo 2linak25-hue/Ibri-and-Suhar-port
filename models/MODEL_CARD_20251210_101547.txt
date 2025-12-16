@@ -1,0 +1,57 @@
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                           EMF PREDICTION MODEL CARD                           ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                              ║
+║  MODEL INFORMATION                                                           ║
+║  ─────────────────                                                           ║
+║  Version: 20251210_101547                                           ║
+║  Created: 2025-12-10 10:15:47                                         ║
+║  Framework: scikit-learn, XGBoost                                           ║
+║                                                                              ║
+║  TARGETS                                                                     ║
+║  ───────                                                                     ║
+║  • E_ICNIRP: Electric field as % of ICNIRP reference level                  ║
+║  • H_ICNIRP: Magnetic field as % of ICNIRP reference level                  ║
+║                                                                              ║
+║  BEST MODELS                                                                 ║
+║  ───────────                                                                 ║
+║  • E_ICNIRP: XGBoost              (R² = 0.2686)            ║
+║  • H_ICNIRP: XGBoost              (R² = 0.5349)            ║
+║                                                                              ║
+║  PERFORMANCE METRICS                                                         ║
+║  ───────────────────                                                         ║
+║  E_ICNIRP:                                                                   ║
+║    • RMSE: 4.6229                                                       ║
+║    • MAE:  3.5206                                                        ║
+║    • R²:   0.2686                                                         ║
+║                                                                              ║
+║  H_ICNIRP:                                                                   ║
+║    • RMSE: 0.7078                                                       ║
+║    • MAE:  0.5590                                                        ║
+║    • R²:   0.5349                                                         ║
+║                                                                              ║
+║  INPUT FEATURES (15 total)                                                ║
+║  ──────────────                                                              ║
+║  Profile_Type, Temp_C, Humidity_Pct, Distance_m, Circuit...                                          ║
+║                                                                              ║
+║  PREPROCESSING                                                               ║
+║  ─────────────                                                               ║
+║  • Scaler: RobustScaler                                                      ║
+║  • Missing Values: None expected (validation enforced)                       ║
+║                                                                              ║
+║  LIMITATIONS                                                                 ║
+║  ───────────                                                                 ║
+║  • Model trained on specific dataset - may not generalize to all scenarios  ║
+║  • Assumes input features are in expected ranges                             ║
+║  • Best performance within training data distribution                        ║
+║                                                                              ║
+║  USAGE                                                                       ║
+║  ─────                                                                       ║
+║  from joblib import load                                                     ║
+║  model = load('best_model_E_ICNIRP_xxx.joblib')                             ║
+║  scaler = load('scaler_xxx.joblib')                                         ║
+║  X_scaled = scaler.transform(X_new)                                         ║
+║  predictions = model.predict(X_scaled)                                       ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
