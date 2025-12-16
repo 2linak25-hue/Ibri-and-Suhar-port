@@ -1,0 +1,8 @@
+,Feature,VIF,Status
+0,City,inf,HIGH (>10)
+1,Profile_Type,inf,HIGH (>10)
+2,Time_Hour,inf,HIGH (>10)
+3,Temp_C,inf,HIGH (>10)
+4,Humidity_Pct,inf,HIGH (>10)
+6,Circuit,5.207246581976273,MODERATE (5-10)
+5,Distance_m,1.8295666008935942,OK (<5)
